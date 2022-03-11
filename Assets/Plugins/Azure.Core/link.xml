@@ -1,0 +1,3 @@
+<linker>
+    <assembly fullname="Azure.Core" preserve="all"/>
+</linker>
