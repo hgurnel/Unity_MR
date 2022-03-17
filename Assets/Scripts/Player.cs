@@ -19,9 +19,13 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Get player initial color and scale for later, when we press the button to reset its configuration
         initColorPlayer = gameObject.GetComponent<MeshRenderer>().material.color;
         initScalePlayer = transform.localScale;
+
+        currentTransformCamera = GameObject.Find("Main Camera").GetComponent<Camera>().transform;
+
+        // Force player position/orientation (0.5m in front of the camera) and scale. Color is reset by TestDistanceForColor()
+        resetPlayer(currentTransformCamera, initScalePlayer);
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class Player : MonoBehaviour
         currentTransformCamera = GameObject.Find("Main Camera").GetComponent<Camera>().transform;
 
         if (Input.GetKeyDown("space"))
-            resetPlayer(currentTransformCamera);
+            resetPlayer(currentTransformCamera, initScalePlayer);
         
         // Change color of Player based on distance to camera
         float distance = Vector3.Distance(currentPosPlayer, currentTransformCamera.position);
@@ -47,6 +51,7 @@ public class Player : MonoBehaviour
         if (distance >= 1.0f && distance < 2.0f)
             outputColor = Color.green;
 
+        // Orange
         else if (distance >= 2.0f && distance < 3.0f)
             outputColor = new Color32(255, 165, 0, 255);
 
@@ -59,11 +64,11 @@ public class Player : MonoBehaviour
         return outputColor;
     }
 
-    // Places the Player 0.5m in front of the camera, regardless of the orientation of the camera
-    void resetPlayer(Transform camTransform)
+    // Places the Player 0.5m in front of the camera, straight, regardless of the orientation of the camera, and resets its scale. Color is reset by TestDistanceForColor() in Update().
+    void resetPlayer(Transform camTransform, Vector3 scale)
     {
         // Reset player scale
-        transform.localScale = initScalePlayer;
+        transform.localScale = scale;
 
         // Set player position to camera position
         transform.position = camTransform.position;
@@ -71,7 +76,7 @@ public class Player : MonoBehaviour
         // Set player orientation to camera orientation
         transform.rotation = camTransform.rotation;
 
-        // Move player by 0.5m along its forward vector
+        // Move player forward by 0.5m 
         transform.Translate(0, 0, 0.5f);
     }
 
