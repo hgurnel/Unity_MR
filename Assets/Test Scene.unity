@@ -333,9 +333,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 577745404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9ce1a6c964a0d041ab923b93bd6eadc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b3e6359c9750ad4fb8a05c9b8704d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType: 3
+  proximityType: 3
+  constraintOnRotation: 3
+  useLocalSpaceForConstraint: 0
 --- !u!1 &588526633
 GameObject:
   m_ObjectHideFlags: 0

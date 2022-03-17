@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     // ----- ATTRIBUTES + acessibility modifiers -----
 
+    private float m_distance;
+
     private Color m_initColorPlayer;
 
     private Vector3 m_initScalePlayer;
@@ -59,8 +61,8 @@ public class PlayerController : MonoBehaviour
         m_currentTransformCamera = GameObject.Find("Main Camera").GetComponent<Camera>().transform;
         
         // Change color of PlayerController based on distance to camera
-        float distance = Vector3.Distance(m_currentPosPlayer, m_currentTransformCamera.position);
-        gameObject.GetComponent<MeshRenderer>().material.color = TestDistanceForColor(distance);
+        m_distance = Vector3.Distance(m_currentPosPlayer, m_currentTransformCamera.position);
+        gameObject.GetComponent<MeshRenderer>().material.color = TestDistanceForColor(m_distance);
     }
 
     // ----- OTHER METHODS -----
