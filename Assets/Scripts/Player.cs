@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
         currentTransformCamera = GameObject.Find("Main Camera").GetComponent<Camera>().transform;
 
-        // Force player position/orientation (0.5m in front of the camera) and scale. Color is reset by TestDistanceForColor()
+        // Force player position/orientation (0.5m in front of the camera) and scale. Color is reset by TestDistanceForColor().
         resetPlayer(currentTransformCamera, initScalePlayer);
     }
 
