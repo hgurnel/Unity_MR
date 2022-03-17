@@ -6,7 +6,7 @@ public class Button : MonoBehaviour
 {
     // ----- ATTRIBUTES -----
 
-    // To get a reference to PlayerController.cs
+    // To get a reference to the PlayerController class
     PlayerController m_player;
     [SerializeField] GameObject playerSenderScript;
 
@@ -18,7 +18,7 @@ public class Button : MonoBehaviour
     
     private void Awake()
     {
-        // Get a reference to PlayerController.cs
+        // Get a reference to the PlayerController class at startup
         m_player = playerSenderScript.GetComponent<PlayerController>();
     }
 

@@ -57,9 +57,6 @@ public class PlayerController : MonoBehaviour
     {
         m_currentPosPlayer = transform.position;
         m_currentTransformCamera = GameObject.Find("Main Camera").GetComponent<Camera>().transform;
-
-        //if (Input.GetKeyDown("space"))
-        //    ResetPlayer(m_currentTransformCamera, m_initScalePlayer);
         
         // Change color of PlayerController based on distance to camera
         float distance = Vector3.Distance(m_currentPosPlayer, m_currentTransformCamera.position);
